@@ -1,41 +1,36 @@
 (function () {
-  const STARTING_PILES = [1, 3, 5, 7];
+  const STARTING_LINES = 18;
+  const MAX_TAKE = 3;
 
-  let piles = [];
+  let remaining = STARTING_LINES;
   let gameOver = false;
 
-  const pilesEl = document.getElementById('nim-piles');
+  const linesEl = document.getElementById('nim-lines');
   const statusEl = document.getElementById('nim-status');
   const resetBtn = document.getElementById('nim-reset');
-
-  function nimSum(arr) {
-    return arr.reduce((acc, n) => acc ^ n, 0);
-  }
+  const takeBtns = document.querySelectorAll('#nim-lines ~ .nim-controls [data-take]');
 
   function render() {
-    pilesEl.innerHTML = '';
-    piles.forEach((count, pileIndex) => {
-      const pileEl = document.createElement('div');
-      pileEl.className = 'nim-pile';
-      for (let i = 0; i < count; i++) {
-        const counter = document.createElement('div');
-        counter.className = 'nim-counter' + (gameOver ? ' disabled' : '');
-        counter.title = 'Remove this and everything to its right';
-        counter.addEventListener('click', () => takeTurn(pileIndex, i));
-        pileEl.appendChild(counter);
-      }
-      pilesEl.appendChild(pileEl);
+    linesEl.innerHTML = '';
+    for (let i = 0; i < STARTING_LINES; i++) {
+      const line = document.createElement('div');
+      line.className = 'nim-line' + (i >= remaining ? ' crossed' : '');
+      linesEl.appendChild(line);
+    }
+
+    takeBtns.forEach((btn) => {
+      const take = parseInt(btn.dataset.take, 10);
+      btn.disabled = gameOver || take > remaining;
     });
   }
 
-  function takeTurn(pileIndex, counterIndex) {
-    if (gameOver) return;
-    const removed = piles[pileIndex] - counterIndex;
-    piles[pileIndex] -= removed;
+  function takeTurn(take) {
+    if (gameOver || take > remaining) return;
+    remaining -= take;
     render();
 
-    if (piles.every((p) => p === 0)) {
-      statusEl.textContent = 'You took the last counter — you win! 🎉';
+    if (remaining === 0) {
+      statusEl.textContent = 'You crossed off the last line — you lose!';
       gameOver = true;
       render();
       return;
@@ -46,46 +41,34 @@
   }
 
   function computerTurn() {
-    const sum = nimSum(piles);
-    let move = null;
+    // Winning strategy: leave a remainder of 1 (mod 4) for the opponent.
+    let take = ((remaining - 1) % 4 + 4) % 4;
+    if (take === 0 || take > remaining) take = 1;
+    if (take > MAX_TAKE) take = MAX_TAKE;
 
-    if (sum !== 0) {
-      // Winning move: find a pile to reduce so the nim-sum becomes 0
-      for (let i = 0; i < piles.length; i++) {
-        const target = piles[i] ^ sum;
-        if (target < piles[i]) {
-          move = { pile: i, newCount: target };
-          break;
-        }
-      }
-    }
-
-    if (!move) {
-      // No winning move available: take one counter from the first non-empty pile
-      const pile = piles.findIndex((p) => p > 0);
-      move = { pile, newCount: piles[pile] - 1 };
-    }
-
-    piles[move.pile] = move.newCount;
+    remaining -= take;
     render();
 
-    if (piles.every((p) => p === 0)) {
-      statusEl.textContent = 'The computer took the last counter — better luck next time!';
+    if (remaining === 0) {
+      statusEl.textContent = 'The computer crossed off the last line — you win! 🎉';
       gameOver = true;
       render();
       return;
     }
 
-    statusEl.textContent = 'Your turn — click a counter to remove it and everything to its right in that pile.';
+    statusEl.textContent = `Computer crossed off ${take} line${take > 1 ? 's' : ''}. Your turn!`;
   }
 
   function reset() {
-    piles = [...STARTING_PILES];
+    remaining = STARTING_LINES;
     gameOver = false;
-    statusEl.textContent = 'Your turn — click a counter to remove it and everything to its right in that pile.';
+    statusEl.textContent = 'Your turn — cross off 1, 2 or 3 lines.';
     render();
   }
 
+  takeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => takeTurn(parseInt(btn.dataset.take, 10)));
+  });
   resetBtn.addEventListener('click', reset);
   reset();
 })();

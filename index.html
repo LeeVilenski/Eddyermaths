@@ -130,20 +130,27 @@
         <!-- NIM -->
         <div class="game-block">
           <div class="game-info">
-            <h3>The Game of Nim</h3>
+            <h3>The 18 Lines Game</h3>
             <p>
-              Nim is an ancient strategy game that hides a beautiful piece of maths: binary numbers.
-              Two players take turns removing any number of counters from a single pile.
-              <strong>Whoever takes the last counter wins.</strong>
-              With the right strategy (hint: it involves XOR-ing the pile sizes in binary!),
-              the first player can force a win from almost any starting position.
+              Start with 18 lines. Taking turns, each player crosses off 1, 2 or 3 lines.
+              <strong>Whoever is forced to cross off the very last line loses.</strong>
             </p>
-            <p class="muted">You go first. Click a pile, then click how many counters to remove.</p>
+            <p>
+              It looks like luck, but it's not &mdash; it's all about staying in control of the remainder
+              after dividing by 4. Play a few rounds and see if you can work out the rule before
+              the computer beats you to it!
+            </p>
+            <p class="muted">You go first. Choose how many lines to cross off (1, 2 or 3).</p>
           </div>
           <div class="game-stage">
-            <div id="nim-piles" class="nim-piles"></div>
-            <div id="nim-status" class="game-status">Click a counter to remove it and everything to its right in that pile.</div>
-            <button id="nim-reset" class="btn btn-small">New Game</button>
+            <div id="nim-lines" class="nim-lines"></div>
+            <div id="nim-status" class="game-status">Your turn &mdash; cross off 1, 2 or 3 lines.</div>
+            <div class="nim-controls">
+              <button class="btn btn-small" data-take="1">Cross off 1</button>
+              <button class="btn btn-small" data-take="2">Cross off 2</button>
+              <button class="btn btn-small" data-take="3">Cross off 3</button>
+            </div>
+            <button id="nim-reset" class="btn btn-small btn-reset">New Game</button>
           </div>
         </div>
 

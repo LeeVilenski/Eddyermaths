@@ -406,44 +406,61 @@ h1, h2, h3 {
   color: var(--color-primary-dark);
 }
 
-/* NIM */
-.nim-piles {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
-  max-width: 320px;
+/* NIM (18 lines game) */
+.nim-lines {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+  max-width: 360px;
   margin: 0 auto;
 }
 
-.nim-pile {
-  display: flex;
-  gap: 0.35rem;
-  flex-wrap: wrap;
-}
-
-.nim-counter {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+.nim-line {
+  height: 8px;
+  border-radius: 4px;
   background: var(--color-primary);
-  cursor: pointer;
-  border: 2px solid var(--color-primary-dark);
-  transition: transform 0.1s;
+  position: relative;
+  transition: background 0.2s;
 }
 
-.nim-counter:hover {
-  transform: scale(1.15);
+.nim-line.crossed {
+  background: #e0ddd0;
+}
+
+.nim-line.crossed::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 50%;
+  height: 3px;
   background: var(--color-accent);
+  transform: translateY(-50%) rotate(-8deg);
+  border-radius: 2px;
 }
 
-.nim-counter.disabled {
-  cursor: default;
+.nim-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
 }
 
-.nim-counter.disabled:hover {
+.nim-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
   transform: none;
-  background: var(--color-primary);
+}
+
+.btn-reset {
+  margin-top: 0.75rem;
+  background: var(--color-secondary);
+  box-shadow: 0 3px 10px rgba(94, 96, 206, 0.3);
+}
+
+.btn-reset:hover {
+  background: #4c4eb8;
 }
 
 /* TIC TAC TOE */
