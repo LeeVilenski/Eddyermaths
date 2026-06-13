@@ -130,14 +130,13 @@
         <!-- NIM -->
         <div class="game-block">
           <div class="game-info">
-            <h3>The 18 Lines Game</h3>
+            <h3>The game of Nim</h3>
             <p>
-              Start with 18 lines. Taking turns, each player crosses off 1, 2 or 3 lines.
+              Take turns, each player crosses off 1, 2 or 3 lines.
               <strong>Whoever is forced to cross off the very last line loses.</strong>
             </p>
             <p>
-              It looks like luck, but it's not &mdash; it's all about staying in control of the remainder
-              after dividing by 4. Play a few rounds and see if you can work out the rule before
+              It looks like luck, but it's not! Play a few rounds and see if you can work out the rule before
               the computer beats you to it!
             </p>
             <p class="muted">You go first. Choose how many lines to cross off (1, 2 or 3).</p>
@@ -169,6 +168,20 @@
             <div id="ttt-board" class="ttt-board"></div>
             <div id="ttt-status" class="game-status">Your move &mdash; you are X.</div>
             <button id="ttt-reset" class="btn btn-small">New Game</button>
+            <details class="strategy-details">
+              <summary>How to always force a draw (or win)</summary>
+              <div class="strategy-content">
+                <ol>
+                  <li><strong>Take the centre if you can.</strong> It's part of the most winning lines (4 in total), so it's the strongest opening move.</li>
+                  <li><strong>If the centre is taken, take a corner.</strong> Corners are part of 3 lines each, and are much stronger than edges.</li>
+                  <li><strong>Always check for an immediate win first.</strong> If you have two in a row with the third square free, take it.</li>
+                  <li><strong>Then always check for an immediate block.</strong> If your opponent has two in a row, you must block the third square &mdash; otherwise they win next turn.</li>
+                  <li><strong>Watch out for forks.</strong> A "fork" is a move that creates two ways to win at once, so your opponent can only block one. If your opponent could create a fork, block it before it happens.</li>
+                  <li><strong>Edges are usually your last resort.</strong> They're only part of 2 lines each, so they're the weakest squares on the board.</li>
+                </ol>
+                <p class="muted">Follow these rules in order on every turn, and the very best your opponent can do is draw &mdash; just like the computer above!</p>
+              </div>
+            </details>
           </div>
         </div>
 

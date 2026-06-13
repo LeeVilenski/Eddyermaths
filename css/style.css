@@ -463,6 +463,55 @@ h1, h2, h3 {
   background: #4c4eb8;
 }
 
+/* STRATEGY EXPLANATION */
+.strategy-details {
+  margin-top: 1.25rem;
+  text-align: left;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 0.85rem 1.1rem;
+}
+
+.strategy-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-secondary);
+  list-style: none;
+}
+
+.strategy-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.strategy-details summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.15s;
+}
+
+.strategy-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.strategy-content {
+  margin-top: 0.85rem;
+}
+
+.strategy-content ol {
+  padding-left: 1.3rem;
+  margin: 0;
+}
+
+.strategy-content li {
+  margin-bottom: 0.6rem;
+}
+
+.strategy-content li:last-child {
+  margin-bottom: 0;
+}
+
 /* TIC TAC TOE */
 .ttt-board {
   display: grid;
