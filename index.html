@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cranbrook Maths Tutor | GCSE Maths Tuition, Devon</title>
+  <meta name="description" content="Friendly, one-to-one GCSE Maths tutoring in Cranbrook, Devon. Build confidence, boost grades, and discover why maths can be fun." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">Cranbrook<span>Maths</span></a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#tutoring">GCSE Tutoring</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#fun-maths">Fun Maths</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>GCSE Maths tuition in Cranbrook, Devon</h1>
+        <p class="hero-tagline">Friendly one-to-one tutoring that helps maths <em>click</em> &mdash; and shows just how fun it can be along the way.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Book a Free Chat</a>
+          <a href="#fun-maths" class="btn btn-secondary">Explore the Fun Maths Corner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm Edward Dyer, a local maths tutor based in Cranbrook, Devon, helping GCSE students build confidence
+              and improve their grades through patient, personalised one-to-one teaching.
+            </p>
+            <p>
+              I believe maths sticks best when it feels less like a chore and more like solving a puzzle.
+              Alongside exam-focused revision, every session leaves room for the "why" behind the maths &mdash;
+              the patterns, tricks, and games that make the subject genuinely enjoyable.
+            </p>
+            <p>
+              Sessions are available in person around Cranbrook and Devon, or online via video call.
+            </p>
+          </div>
+          <div class="about-highlights">
+            <ul>
+              <li>All major exam boards (AQA, Edexcel, OCR)</li>
+              <li>Foundation &amp; Higher tier</li>
+              <li>One-to-one, personalised sessions</li>
+              <li>In-person (Cranbrook &amp; nearby) or online</li>
+              <li>Patient, encouraging teaching style</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TUTORING -->
+    <section id="tutoring" class="section section-alt">
+      <div class="container">
+        <h2>GCSE Maths Tutoring</h2>
+        <p class="section-intro">
+          Tuition tailored to where each student is right now &mdash; whether that's catching up on the basics,
+          aiming for a grade 4, or pushing for a 7, 8 or 9.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>Foundation &amp; Higher</h3>
+            <p>Covering the full GCSE specification, from number and algebra to geometry, statistics and probability.</p>
+          </div>
+          <div class="card">
+            <h3>Exam Technique</h3>
+            <p>Past papers, common pitfalls, and how to pick up every available mark &mdash; including the trickier worded questions.</p>
+          </div>
+          <div class="card">
+            <h3>Confidence Building</h3>
+            <p>For students who feel "I'm just not a maths person" &mdash; a relaxed pace and a focus on understanding, not just memorising.</p>
+          </div>
+          <div class="card">
+            <h3>Flexible Sessions</h3>
+            <p>Weekly or fortnightly sessions, in person around Cranbrook and Devon, or online via video call.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section section-alt">
+      <div class="container">
+        <h2>Pricing</h2>
+        <p class="section-intro">Simple, affordable rates — no hidden extras.</p>
+        <div class="cards">
+          <div class="card price-card">
+            <h3>1 hour</h3>
+            <p class="price">£15</p>
+            <p>A standard one-to-one session, in person around Cranbrook or online via video call.</p>
+          </div>
+          <div class="card price-card">
+            <h3>1.5 hours</h3>
+            <p class="price">£20</p>
+            <p>A longer session — great for covering more ground or working through a full topic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUN MATHS CORNER -->
+    <section id="fun-maths" class="section">
+      <div class="container">
+        <h2>The Fun Maths Corner</h2>
+        <p class="section-intro">
+          Maths isn't just about exams &mdash; it's full of brilliant puzzles, games and tricks. Here are a few
+          favourites I love sharing with students. Have a go below!
+        </p>
+
+        <!-- NIM -->
+        <div class="game-block">
+          <div class="game-info">
+            <h3>The Game of Nim</h3>
+            <p>
+              Nim is an ancient strategy game that hides a beautiful piece of maths: binary numbers.
+              Two players take turns removing any number of counters from a single pile.
+              <strong>Whoever takes the last counter wins.</strong>
+              With the right strategy (hint: it involves XOR-ing the pile sizes in binary!),
+              the first player can force a win from almost any starting position.
+            </p>
+            <p class="muted">You go first. Click a pile, then click how many counters to remove.</p>
+          </div>
+          <div class="game-stage">
+            <div id="nim-piles" class="nim-piles"></div>
+            <div id="nim-status" class="game-status">Click a counter to remove it and everything to its right in that pile.</div>
+            <button id="nim-reset" class="btn btn-small">New Game</button>
+          </div>
+        </div>
+
+        <!-- NOUGHTS AND CROSSES -->
+        <div class="game-block reverse">
+          <div class="game-info">
+            <h3>Unbeatable Noughts &amp; Crosses</h3>
+            <p>
+              With perfect play, noughts and crosses (tic-tac-toe) always ends in a draw &mdash; nobody can force a win.
+              The computer below plays <strong>perfectly</strong> using an algorithm called <em>minimax</em>,
+              which looks ahead through every possible sequence of moves to pick the best one.
+            </p>
+            <p class="muted">You're X. Try your best &mdash; can you spot the strategies that guarantee at least a draw?</p>
+          </div>
+          <div class="game-stage">
+            <div id="ttt-board" class="ttt-board"></div>
+            <div id="ttt-status" class="game-status">Your move &mdash; you are X.</div>
+            <button id="ttt-reset" class="btn btn-small">New Game</button>
+          </div>
+        </div>
+
+        <!-- TOWERS OF HANOI -->
+        <div class="game-block">
+          <div class="game-info">
+            <h3>The Towers of Hanoi</h3>
+            <p>
+              Move the whole stack of discs from the left peg to the right peg, one disc at a time,
+              never placing a larger disc on top of a smaller one.
+            </p>
+            <p>
+              The minimum number of moves for <code>n</code> discs is <strong>2<sup>n</sup> &minus; 1</strong>.
+              Legend says monks are solving a 64-disc version of this puzzle &mdash; at one move per second,
+              that would take over <strong>580 billion years</strong>!
+            </p>
+            <div class="hanoi-controls">
+              <label for="hanoi-discs">Number of discs:</label>
+              <select id="hanoi-discs">
+                <option value="3">3</option>
+                <option value="4" selected>4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+              <button id="hanoi-reset" class="btn btn-small">Reset</button>
+              <button id="hanoi-solve" class="btn btn-small">Auto-solve</button>
+            </div>
+          </div>
+          <div class="game-stage">
+            <div id="hanoi-board" class="hanoi-board"></div>
+            <div id="hanoi-status" class="game-status">
+              Moves: <span id="hanoi-moves">0</span> &nbsp;|&nbsp; Minimum possible: <span id="hanoi-min"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section section-alt">
+      <div class="container">
+        <h2>What students &amp; parents say</h2>
+        <div class="cards">
+          <blockquote class="card quote">
+            <p>"My daughter went from dreading maths homework to actually looking forward to her sessions. Her confidence has come on so much."</p>
+            <cite>&mdash; Parent of a Year 11 student</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>"Explained things in a way that finally made sense, and the games made revision feel less like revision!"</p>
+            <cite>&mdash; GCSE student, Cranbrook</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>"Patient, organised, and really good at spotting exactly where the gaps were. Highly recommend."</p>
+            <cite>&mdash; Parent, Devon</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container contact-inner">
+        <h2>Get in touch</h2>
+        <p class="section-intro">
+          Based in Cranbrook, Devon &mdash; covering the local area in person, or online anywhere.
+          Get in touch for a free, no-obligation chat about how I can help.
+        </p>
+        <form class="contact-form" action="mailto:Edward.Dyer@nhs.net" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me a bit about what you're looking for (year group, exam board, areas to focus on...)"></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <p class="contact-alt">
+          Or email directly: <a href="mailto:Edward.Dyer@nhs.net">Edward.Dyer@nhs.net</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Edward Dyer &mdash; Cranbrook Maths Tutor. Based in Cranbrook, Devon.</p>
+    </div>
+  </footer>
+
+  <script src="js/nim.js"></script>
+  <script src="js/tictactoe.js"></script>
+  <script src="js/hanoi.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
